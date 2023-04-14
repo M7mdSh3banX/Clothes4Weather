@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Clothes 4 Weather</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="onboarding_screen_title">Discover the Weather in Your City</string>
+    <string name="onboarding2_screen_desc">Get to know your weather maps and precipitation forecast</string>
+    <string name="button_get_your_location">Get your location</string>
 </resources>

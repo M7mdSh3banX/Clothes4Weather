@@ -6,13 +6,17 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.Fragment
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
+
+    private val fragmentOnboarding = OnboardingFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
 
+        initSubView()
         statusBarTheme()
     }
 
@@ -37,5 +41,15 @@ class MainActivity : AppCompatActivity() {
     private fun isDarkTheme(): Boolean {
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES
+    }
+
+    private fun initSubView() {
+        addFragment(fragmentOnboarding)
+    }
+
+    private fun addFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.fragmentContainerView, fragment)
+        transaction.commit()
     }
 }
