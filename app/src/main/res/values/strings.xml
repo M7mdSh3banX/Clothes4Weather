@@ -4,4 +4,6 @@
     <string name="onboarding1_screen_desc">Choose your suitable outfit from the collection given for you depending on the weather forecast.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboarding2_screen_title">What is you gender?</string>
+    <string name="onboarding2_screen_desc">Please choose your gender. This will be used to identify your clothes.</string>
 </resources>
