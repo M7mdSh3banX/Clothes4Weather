@@ -1,16 +1,33 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Theme.Clothes4Weather" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <style name="Theme.Clothes4Weather" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--Primary-->
+        <item name="colorPrimary">@color/primary_200</item>
+        <item name="colorOnPrimary">@color/primary_500</item>
+        <item name="colorPrimaryContainer">@color/primary_300</item>
+        <item name="colorOnPrimaryContainer">@color/primary_200</item>
+        <!--Secondary-->
+        <item name="colorSecondary">@color/primary_200</item>
+        <item name="colorOnSecondary">@color/white_300</item>
+        <item name="colorSecondaryContainer">@color/white_100</item>
+        <item name="colorOnSecondaryContainer">@color/primary_100</item>
+        <!--Tertiary-->
+        <item name="colorTertiary">@color/primary_200</item>
+        <item name="colorOnTertiary">@color/primary_500</item>
+        <item name="colorTertiaryContainer">@color/primary_400</item>
+        <item name="colorOnTertiaryContainer">@color/primary_100</item>
+        <!--Surface & Background-->
+        <item name="colorOutline">@color/theme_dark_outline</item>
+        <item name="android:colorBackground">@color/theme_dark_background</item>
+        <item name="colorOnBackground">@color/theme_dark_onBackground</item>
+        <item name="colorSurface">@color/black_38</item>
+        <item name="colorOnSurface">@color/white_200</item>
+        <item name="colorSurfaceVariant">@color/white_300</item>
+        <item name="colorOnSurfaceVariant">@color/white_100</item>
+        <item name="colorSurfaceInverse">@color/white_200</item>
+        <item name="colorOnSurfaceInverse">@color/theme_dark_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/primary_300</item>
+
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 </resources>
