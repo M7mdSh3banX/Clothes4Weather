@@ -10,12 +10,12 @@
         android:id="@+id/onboarding3_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_very_giant"
+        android:layout_marginTop="32dp"
         android:contentDescription="@null"
         android:src="@drawable/weather"
         app:layout_constraintEnd_toEndOf="@id/right_guideline"
         app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/top_guideline" />
 
     <TextView
         android:id="@+id/onboarding3_title"
@@ -35,7 +35,7 @@
         android:id="@+id/onboarding1_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/raleway_regular"
         android:text="@string/onboarding2_screen_desc"
         android:textAlignment="center"
