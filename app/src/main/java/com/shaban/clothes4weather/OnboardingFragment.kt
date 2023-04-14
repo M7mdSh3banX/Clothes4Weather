@@ -10,6 +10,6 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
         FragmentOnboardingBinding.inflate(layoutInflater)
 
     override fun setup() {
-        TODO("Not yet implemented")
+
     }
 }
