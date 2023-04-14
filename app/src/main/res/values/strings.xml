@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Clothes 4 Weather</string>
+    <string name="onboarding1_screen_title">Select What You Love</string>
+    <string name="onboarding1_screen_desc">Choose your suitable outfit from the collection given for you depending on the weather forecast.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
