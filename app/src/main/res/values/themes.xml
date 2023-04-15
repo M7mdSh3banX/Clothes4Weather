@@ -31,4 +31,18 @@
         <item name="android:fitsSystemWindows">true</item>
 
     </style>
+
+    <style name="getLocationButtonStyle" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_giant</item>
+        <item name="android:text">@string/button_get_your_location</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="tint">@null</item>
+    </style>
+
 </resources>

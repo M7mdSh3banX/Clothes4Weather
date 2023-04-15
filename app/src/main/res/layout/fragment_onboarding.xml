@@ -26,7 +26,6 @@
         android:fontFamily="@font/raleway_semibold"
         android:text="@string/onboarding_screen_title"
         android:textAlignment="center"
-        android:textColor="@color/black_87"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/onboarding3_image"
         app:layout_constraintStart_toStartOf="@+id/onboarding3_image"
@@ -40,7 +39,6 @@
         android:fontFamily="@font/raleway_regular"
         android:text="@string/onboarding2_screen_desc"
         android:textAlignment="center"
-        android:textColor="@color/black_60"
         android:textSize="@dimen/text_medium"
         app:layout_constraintEnd_toEndOf="@+id/onboarding3_title"
         app:layout_constraintStart_toStartOf="@+id/onboarding3_title"
@@ -48,14 +46,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/get_location_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/button_background"
-        android:fontFamily="@font/raleway_medium"
-        android:text="@string/button_get_your_location"
-        android:textSize="@dimen/text_medium"
-        app:backgroundTint="@null"
+        style="@style/getLocationButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
         app:layout_constraintStart_toStartOf="@+id/left_guideline" />
