@@ -32,8 +32,4 @@
 
         <item name="snackbarStyle">@style/Widget.App.Snackbar</item>
     </style>
-
-    <style name="Widget.App.Snackbar" parent="">
-        <item name="android:layout_margin">16dp</item>
-    </style>
 </resources>
