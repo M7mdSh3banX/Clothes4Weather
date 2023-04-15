@@ -1,4 +1,4 @@
-package com.shaban.clothes4weather.data
+package com.shaban.clothes4weather.models
 
 import com.google.gson.annotations.SerializedName
 
