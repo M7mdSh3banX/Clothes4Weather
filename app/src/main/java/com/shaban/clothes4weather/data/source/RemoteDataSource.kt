@@ -1,6 +1,8 @@
 package com.shaban.clothes4weather.data.source
 
 import android.util.Log
+import com.google.gson.Gson
+import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.utils.Constants.API_KEY_QUERY_PARAM
 import com.shaban.clothes4weather.utils.Constants.API_KEY_VALUE
 import com.shaban.clothes4weather.utils.Constants.HOST
@@ -35,11 +37,16 @@ object RemoteDataSource {
         val request = Request.Builder().url(url).build()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.i(this.toString(), "Fail Response")
+                Log.i("TAG_TEST", "Fail Response: ${e.message}")
             }
 
             override fun onResponse(call: Call, response: Response) {
-                Log.i(this.toString(), "Success Response")
+                if (response.isSuccessful) {
+                    response.body?.string()?.let {
+                        val responseResult = Gson().fromJson(it, WeatherResponse::class.java)
+                        Log.i("TAG_TEST", responseResult.toString())
+                    }
+                }
             }
         })
     }
