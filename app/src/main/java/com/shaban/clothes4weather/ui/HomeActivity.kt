@@ -1,4 +1,4 @@
-package com.shaban.clothes4weather
+package com.shaban.clothes4weather.ui
 
 import android.content.res.Configuration
 import android.graphics.Color
@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import com.shaban.clothes4weather.R
 
 class HomeActivity : AppCompatActivity() {
 

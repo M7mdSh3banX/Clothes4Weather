@@ -1,4 +1,4 @@
-package com.shaban.clothes4weather
+package com.shaban.clothes4weather.utils
 
 import android.content.Context
 import android.content.SharedPreferences

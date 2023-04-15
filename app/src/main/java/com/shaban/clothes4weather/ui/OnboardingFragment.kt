@@ -1,4 +1,4 @@
-package com.shaban.clothes4weather
+package com.shaban.clothes4weather.ui
 
 import android.Manifest
 import android.app.Activity
@@ -13,6 +13,10 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.shaban.clothes4weather.databinding.FragmentOnboardingBinding
+import com.shaban.clothes4weather.ui.base.BaseFragment
+import com.shaban.clothes4weather.utils.Constants
+import com.shaban.clothes4weather.utils.SharedPreferencesUtil
+import com.shaban.clothes4weather.utils.replaceFragment
 
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
 
