@@ -30,6 +30,5 @@
 
         <item name="android:fitsSystemWindows">true</item>
 
-        <item name="snackbarStyle">@style/Widget.App.Snackbar</item>
     </style>
 </resources>
