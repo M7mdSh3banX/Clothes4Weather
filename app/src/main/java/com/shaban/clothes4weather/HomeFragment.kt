@@ -12,7 +12,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     override fun setup() {
-
+        binding.latitudeText.text = SharedPreferencesUtil.latitude.toString()
+        binding.longitudeText.text = SharedPreferencesUtil.longitude.toString()
     }
 
 }

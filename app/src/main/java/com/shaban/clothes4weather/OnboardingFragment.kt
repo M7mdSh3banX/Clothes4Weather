@@ -17,6 +17,7 @@ import com.shaban.clothes4weather.databinding.FragmentOnboardingBinding
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private val homeFragment: HomeFragment = HomeFragment()
 
     override val TAG: String
         get() = this::class.simpleName.toString()
@@ -25,7 +26,7 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
         FragmentOnboardingBinding.inflate(layoutInflater)
 
     override fun setup() {
-
+        SharedPreferencesUtil.initPreferencesUtil(requireContext())
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireContext())
         addCallBacks()
@@ -75,8 +76,12 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
                             .show()
                     else {
                         Toast.makeText(requireContext(), "Get Success", Toast.LENGTH_SHORT).show()
-                        // send lat and long to the home fragment
                         log("${location.latitude} + ${location.longitude}")
+
+                        SharedPreferencesUtil.latitude = location.latitude.toFloat()
+                        SharedPreferencesUtil.longitude = location.longitude.toFloat()
+
+                        replaceFragment(homeFragment)
                     }
                 }
             } else {
