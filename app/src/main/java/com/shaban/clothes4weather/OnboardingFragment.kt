@@ -26,6 +26,7 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
         FragmentOnboardingBinding.inflate(layoutInflater)
 
     override fun setup() {
+
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireContext())
         addCallBacks()
