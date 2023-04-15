@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.snackbar.Snackbar
 import com.shaban.clothes4weather.databinding.FragmentOnboardingBinding
 
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
@@ -38,9 +39,9 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
 
     private fun checkPermissions(): Boolean {
         return ActivityCompat.checkSelfPermission(
-            requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION
+            requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-            requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION
+            requireContext(), Manifest.permission.ACCESS_FINE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED
     }
 
@@ -70,13 +71,15 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener {
                     val location: Location? = it.result
                     if (location == null)
-                        Toast.makeText(context, "Null Recieved!!", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(requireView(), "Null Recieved!!", Snackbar.LENGTH_LONG).show()
                     else {
-                        Toast.makeText(context, "Get Success!!", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(requireView(), "Get Success!!", Snackbar.LENGTH_LONG).show()
                         // send lat and long to the home fragment
+                        log("${location.latitude} + ${location.longitude}")
                     }
                 }
             } else {
+                Snackbar.make(requireView(), "Granted!!", Snackbar.LENGTH_LONG).show()
                 Toast.makeText(context, "Granted!!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 startActivity(intent)
@@ -90,8 +93,8 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
         ActivityCompat.requestPermissions(
             context as Activity,
             arrayOf(
-                android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
             ),
             Constants.PERMISSION_REQUEST_ACCESS_LOCATION
         )
@@ -107,10 +110,10 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
 
         if (requestCode == Constants.PERMISSION_REQUEST_ACCESS_LOCATION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(context, "Granted!!", Toast.LENGTH_SHORT).show()
+                Snackbar.make(requireView(), "Granted!!", Snackbar.LENGTH_LONG).show()
                 getCurrentLocation()
             } else {
-                Toast.makeText(context, "Denied!!", Toast.LENGTH_SHORT).show()
+                Snackbar.make(requireView(), "Denied!!", Snackbar.LENGTH_LONG).show()
             }
         }
     }
