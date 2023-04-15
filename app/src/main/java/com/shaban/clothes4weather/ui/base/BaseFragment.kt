@@ -1,4 +1,4 @@
-package com.shaban.clothes4weather
+package com.shaban.clothes4weather.ui.base
 
 import android.os.Bundle
 import android.util.Log

@@ -1,6 +1,8 @@
-package com.shaban.clothes4weather
+package com.shaban.clothes4weather.ui
 
 import com.shaban.clothes4weather.databinding.FragmentHomeBinding
+import com.shaban.clothes4weather.ui.base.BaseFragment
+import com.shaban.clothes4weather.utils.SharedPreferencesUtil
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
