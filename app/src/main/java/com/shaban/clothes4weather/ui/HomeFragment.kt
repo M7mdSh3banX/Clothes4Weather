@@ -8,6 +8,9 @@ import com.shaban.clothes4weather.data.source.RemoteDataSourceInterface
 import com.shaban.clothes4weather.databinding.FragmentHomeBinding
 import com.shaban.clothes4weather.ui.base.BaseFragment
 import com.shaban.clothes4weather.utils.SharedPreferencesUtil
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterface {
@@ -53,11 +56,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                     .toInt()
                     .toString()
                     .plus("°C")
+            binding.dateTextView.text = getCurrentDate()
         }
 
     }
 
     override fun onError(messageError: String) {
         Log.i("TAG_TEST", "Fail Response: $messageError")
+    }
+
+    private fun getCurrentDate(): String {
+        val formatter = DateTimeFormatter.ofPattern("EEE, MMM dd")
+        val current = LocalDateTime.now().format(formatter)
+        Log.e("LOCAL_TIME", current)
+        return current
     }
 }

@@ -6,4 +6,5 @@
     <string name="button_get_your_location">Get your location</string>
     <string name="your_weather_advice">Your Weather Advice</string>
     <string name="your_weather_advice_body">Stay hydrated: drink plenty of cool liquids, especially water, before you feel thirsty to decrease your risk of dehydration. Avoid sun exposure: wear a wide-brimmed, breathable hat or use an umbrella. Wear sunglasses: make sure they provide protection against UVA and UVB rays.</string>
+    <string name="your_outfit_today">Your Outfit Today</string>
 </resources>

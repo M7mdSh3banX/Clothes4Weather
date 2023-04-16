@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_regular"
-                android:text="Tue, Jun 30"
+                tools:text="Tue, Jun 30"
                 android:textSize="@dimen/text_small"
                 app:layout_constraintStart_toStartOf="@+id/city_name_textView"
                 app:layout_constraintTop_toBottomOf="@+id/city_name_textView" />
@@ -74,7 +74,8 @@
                 android:layout_marginTop="32dp"
                 android:src="@drawable/weather_icon"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/date_textView"
+                android:contentDescription="@null" />
 
             <TextView
                 android:id="@+id/temprature_textView"
@@ -119,7 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_medium"
-                    android:text="Your Outfit Today"
+                    android:text="@string/your_outfit_today"
                     android:textSize="@dimen/text_giant" />
 
                 <com.google.android.material.card.MaterialCardView
