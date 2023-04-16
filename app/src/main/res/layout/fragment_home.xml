@@ -92,13 +92,14 @@
             <TextView
                 android:id="@+id/weather_status_textView"
                 style="@style/generalThemeForText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_medium"
                 tools:text="Sunny"
-                android:textSize="@dimen/text_semi_giant"
-                app:layout_constraintBottom_toBottomOf="@+id/icon"
-                app:layout_constraintEnd_toEndOf="@+id/temprature_textView"
+                android:textSize="@dimen/text_large"
+                android:maxLines="2"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/temprature_textView"
                 app:layout_constraintTop_toBottomOf="@+id/temprature_textView" />
 
