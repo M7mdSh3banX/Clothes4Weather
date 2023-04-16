@@ -19,8 +19,8 @@ import java.io.IOException
 object RemoteDataSource {
 
     private val client = OkHttpClient()
+    fun makeRequestUsingOKHTTP(callBack: RemoteDataSourceInterface) {
 
-    fun makeRequestUsingOKHTTP() {
 
         val url = HttpUrl
             .Builder()
@@ -37,6 +37,7 @@ object RemoteDataSource {
         val request = Request.Builder().url(url).build()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
+                callBack.onError(e.message!!)
                 Log.i("TAG_TEST", "Fail Response: ${e.message}")
             }
 
@@ -44,6 +45,7 @@ object RemoteDataSource {
                 if (response.isSuccessful) {
                     response.body?.string()?.let {
                         val responseResult = Gson().fromJson(it, WeatherResponse::class.java)
+                        callBack.onSuccess(responseResult)
                         Log.i("TAG_TEST", responseResult.toString())
                     }
                 }
