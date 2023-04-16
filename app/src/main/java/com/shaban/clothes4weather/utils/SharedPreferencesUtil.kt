@@ -8,6 +8,7 @@ object SharedPreferencesUtil {
     private const val SHARED_PREFERENCES_NAME = "Clothes4WeatherSharedPreferences"
     private const val LATITUDE_KEY = "latitudeKey"
     private const val LONGITUDE_KEY = "longitudeKey"
+    private const val NIGHT_MODE_KEY = "nightModeKey"
 
     fun initPreferencesUtil(context: Context) {
         sharedPreferences = context.getSharedPreferences(
@@ -27,4 +28,11 @@ object SharedPreferencesUtil {
         set(value) {
             sharedPreferences?.edit()?.putFloat(LONGITUDE_KEY, value!!)?.apply()
         }
+
+    var isNightMode: Boolean?
+        get() = sharedPreferences?.getBoolean(NIGHT_MODE_KEY, false)
+        set(value) {
+            sharedPreferences?.edit()?.putBoolean(NIGHT_MODE_KEY, value!!)?.apply()
+        }
+
 }
