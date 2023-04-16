@@ -62,4 +62,8 @@
         <item name="android:textColor">@color/white_500</item>
     </style>
 
+    <style name="generalThemeForText" parent="">
+        <item name="android:textColor">@color/primary_50</item>
+    </style>
+
 </resources>

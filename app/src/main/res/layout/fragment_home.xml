@@ -7,25 +7,146 @@
     tools:context=".ui.HomeFragment">
 
     <TextView
-        android:id="@+id/latitude_text"
+        style="@style/generalThemeForText"
+        android:id="@+id/app_name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="@string/app_name"
+        android:textSize="@dimen/text_semi_giant"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Latitude: " />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:thumb="@drawable/thumb"
+        app:layout_constraintBottom_toBottomOf="@+id/app_name_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/app_name_textView"
+        app:track="@drawable/track" />
 
     <TextView
-        android:id="@+id/longitude_text"
+        android:id="@+id/city_name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Al Fayyum"
+        style="@style/generalThemeForText"
+        android:textSize="@dimen/text_giant"
+        app:layout_constraintStart_toStartOf="@+id/app_name_textView"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_textView" />
+
+    <TextView
+        android:id="@+id/date_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_regular"
+        android:text="Tue, Jun 30"
+        style="@style/generalThemeForText"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintStart_toStartOf="@+id/city_name_textView"
+        app:layout_constraintTop_toBottomOf="@+id/city_name_textView" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/latitude_text"
-        app:layout_constraintStart_toStartOf="@+id/latitude_text"
-        app:layout_constraintTop_toBottomOf="@+id/latitude_text"
-        tools:text="Longitude: " />
+        android:src="@drawable/weather_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_textView" />
+
+    <TextView
+        android:id="@+id/temprature_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/raleway_medium"
+        android:text="30° C"
+        style="@style/generalThemeForText"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/icon" />
+
+    <TextView
+        android:id="@+id/weather_status_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Sunny"
+        style="@style/generalThemeForText"
+        android:textSize="@dimen/text_semi_giant"
+        app:layout_constraintBottom_toBottomOf="@+id/icon"
+        app:layout_constraintEnd_toEndOf="@+id/temprature_textView"
+        app:layout_constraintStart_toStartOf="@+id/temprature_textView"
+        app:layout_constraintTop_toBottomOf="@+id/temprature_textView" />
+
+    <ImageButton
+        android:id="@+id/switch_ic"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/switch_button"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_swap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon">
+
+        <TextView
+            android:id="@+id/title_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Your Outfit Today"
+            style="@style/generalThemeForText"
+            android:textSize="@dimen/text_giant" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/outfit_cardView"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            android:layout_marginTop="@dimen/spacing_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outfit1" />
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

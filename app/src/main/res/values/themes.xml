@@ -62,4 +62,8 @@
         <item name="android:textColor">@color/black_60</item>
     </style>
 
+    <style name="generalThemeForText" parent="">
+        <item name="android:textColor">@color/primary_900</item>
+    </style>
+
 </resources>
