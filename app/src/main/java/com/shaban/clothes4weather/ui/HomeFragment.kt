@@ -1,13 +1,16 @@
 package com.shaban.clothes4weather.ui
 
+import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
+import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.data.source.RemoteDataSource
+import com.shaban.clothes4weather.data.source.RemoteDataSourceInterface
 import com.shaban.clothes4weather.databinding.FragmentHomeBinding
 import com.shaban.clothes4weather.ui.base.BaseFragment
 import com.shaban.clothes4weather.utils.SharedPreferencesUtil
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterface {
     override val TAG: String
         get() = this::class.simpleName.toString()
 
@@ -17,7 +20,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun setup() {
         SharedPreferencesUtil.initPreferencesUtil(requireContext())
-        RemoteDataSource.makeRequestUsingOKHTTP()
+
+        RemoteDataSource.makeRequestUsingOKHTTP(this)
+
         isNightMode()
     }
 
@@ -35,5 +40,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 SharedPreferencesUtil.isNightMode = true
             }
         }
+    }
+
+    override fun onSuccess(weatherResponse: WeatherResponse) {
+        activity?.runOnUiThread {
+            binding.cityNameTextView.text = weatherResponse.cityName
+            binding.weatherStatusTextView.text = weatherResponse.weatherStatus.joinToString {
+                it.statusDescription
+            }
+            binding.tempratureTextView.text =
+                (weatherResponse.weatherMainDetails.temperature - 273.15)
+                    .toInt()
+                    .toString()
+                    .plus("°C")
+        }
+
+    }
+
+    override fun onError(messageError: String) {
+        Log.i("TAG_TEST", "Fail Response: $messageError")
     }
 }
