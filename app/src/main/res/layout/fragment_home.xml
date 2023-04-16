@@ -7,7 +7,7 @@
     tools:context=".ui.HomeFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/app_name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,9 +25,125 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:thumb="@drawable/thumb"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/app_name_textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/app_name_textView"
         app:track="@drawable/track" />
+
+    <TextView
+        android:id="@+id/city_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="@color/primary_900"
+        android:textSize="@dimen/text_giant"
+        app:layout_constraintStart_toStartOf="@+id/app_name_textView"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_textView"
+        tools:text="Al Fayyum" />
+
+    <TextView
+        android:id="@+id/date_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_regular"
+        android:textColor="@color/primary_900"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintStart_toStartOf="@+id/city_name_textView"
+        app:layout_constraintTop_toBottomOf="@+id/city_name_textView"
+        tools:text="Tue, Jun 30" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/weather_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_textView" />
+
+    <TextView
+        android:id="@+id/temprature_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="@color/primary_900"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/icon"
+        tools:text="30° C" />
+
+    <TextView
+        android:id="@+id/weather_status_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_medium"
+        android:textColor="@color/primary_900"
+        android:textSize="@dimen/text_semi_giant"
+        app:layout_constraintBottom_toBottomOf="@+id/icon"
+        app:layout_constraintEnd_toEndOf="@+id/temprature_textView"
+        app:layout_constraintStart_toStartOf="@+id/temprature_textView"
+        app:layout_constraintTop_toBottomOf="@+id/temprature_textView"
+        tools:text="Sunny" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/switch_button"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_swap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon">
+
+        <TextView
+            android:id="@+id/title_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Your Outfit Today"
+            android:textColor="@color/primary_900"
+            android:textSize="@dimen/text_giant" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/outfit_cardView"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/black_8"
+            app:strokeWidth="1dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outfit1" />
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
