@@ -36,22 +36,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/raleway_medium"
+        android:text="Al Fayyum"
         android:textColor="@color/primary_900"
         android:textSize="@dimen/text_giant"
         app:layout_constraintStart_toStartOf="@+id/app_name_textView"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_textView"
-        tools:text="Al Fayyum" />
+        app:layout_constraintTop_toBottomOf="@+id/app_name_textView" />
 
     <TextView
         android:id="@+id/date_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/raleway_regular"
+        android:text="Tue, Jun 30"
         android:textColor="@color/primary_900"
         android:textSize="@dimen/text_small"
         app:layout_constraintStart_toStartOf="@+id/city_name_textView"
-        app:layout_constraintTop_toBottomOf="@+id/city_name_textView"
-        tools:text="Tue, Jun 30" />
+        app:layout_constraintTop_toBottomOf="@+id/city_name_textView" />
 
     <ImageView
         android:id="@+id/icon"
@@ -69,26 +69,27 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/raleway_medium"
+        android:text="30° C"
         android:textColor="@color/primary_900"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/icon"
-        tools:text="30° C" />
+        app:layout_constraintTop_toTopOf="@+id/icon" />
 
     <TextView
         android:id="@+id/weather_status_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/raleway_medium"
+        android:text="Sunny"
         android:textColor="@color/primary_900"
         android:textSize="@dimen/text_semi_giant"
         app:layout_constraintBottom_toBottomOf="@+id/icon"
         app:layout_constraintEnd_toEndOf="@+id/temprature_textView"
         app:layout_constraintStart_toStartOf="@+id/temprature_textView"
-        app:layout_constraintTop_toBottomOf="@+id/temprature_textView"
-        tools:text="Sunny" />
+        app:layout_constraintTop_toBottomOf="@+id/temprature_textView" />
 
     <ImageButton
+        android:id="@+id/switch_ic"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
@@ -100,6 +101,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -120,20 +122,21 @@
             android:textColor="@color/primary_900"
             android:textSize="@dimen/text_giant" />
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/outfit_cardView"
             android:layout_width="240dp"
             android:layout_height="240dp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/spacing_large"
             android:checkable="true"
             android:clickable="true"
             android:focusable="true"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardCornerRadius="8dp"
             app:cardElevation="0dp"
-            app:strokeColor="@color/black_8"
-            app:strokeWidth="1dp">
+            android:layout_marginTop="@dimen/spacing_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -142,7 +145,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/outfit1" />
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 
