@@ -126,7 +126,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/outfit_cardView"
-                    android:layout_width="match_parent"
+                    android:layout_width="240dp"
                     android:layout_height="240dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/spacing_large"
@@ -141,11 +141,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/linear_layout">
 
                     <ImageView
+                        android:id="@+id/selected_imageView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/outfit1" />
+                        tools:src="@drawable/winter_outfit8" />
 
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

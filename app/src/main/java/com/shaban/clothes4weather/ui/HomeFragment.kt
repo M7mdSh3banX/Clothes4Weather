@@ -2,13 +2,14 @@ package com.shaban.clothes4weather.ui
 
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
+import com.shaban.clothes4weather.data.domain.summerClothes
+import com.shaban.clothes4weather.data.domain.winterClothes
 import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.data.source.RemoteDataSource
 import com.shaban.clothes4weather.data.source.RemoteDataSourceInterface
 import com.shaban.clothes4weather.databinding.FragmentHomeBinding
 import com.shaban.clothes4weather.ui.base.BaseFragment
 import com.shaban.clothes4weather.utils.SharedPreferencesUtil
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -57,6 +58,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                     .toString()
                     .plus("°C")
             binding.dateTextView.text = getCurrentDate()
+            binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse) as Int)
         }
 
     }
@@ -70,5 +72,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
         val current = LocalDateTime.now().format(formatter)
         Log.e("LOCAL_TIME", current)
         return current
+    }
+
+    private fun getRandomImageWeather(weatherResponse: WeatherResponse): Any {
+        val temprature = weatherResponse.weatherMainDetails.temperature - 273.15
+        val selectedImage = when {
+            temprature <= 25.0F -> winterClothes
+            temprature in 26.0F..60.0F -> summerClothes
+            else -> winterClothes
+        }
+        return selectedImage.random()
     }
 }
