@@ -66,4 +66,12 @@
         <item name="android:textColor">@color/primary_900</item>
     </style>
 
+    <style name="background" parent="">
+        <item name="android:background">@color/white_100</item>
+    </style>
+
+    <style name="backgroundCard" parent="">
+        <item name="cardBackgroundColor">@color/white_100</item>
+    </style>
+
 </resources>

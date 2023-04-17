@@ -66,4 +66,12 @@
         <item name="android:textColor">@color/primary_50</item>
     </style>
 
+    <style name="background" parent="">
+        <item name="android:background">@color/theme_dark_background</item>
+    </style>
+
+    <style name="backgroundCard" parent="">
+        <item name="cardBackgroundColor">@color/theme_dark_background</item>
+    </style>
+
 </resources>

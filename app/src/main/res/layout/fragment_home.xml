@@ -50,10 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/raleway_medium"
-                tools:text="Al Fayyum"
                 android:textSize="@dimen/text_giant"
                 app:layout_constraintStart_toStartOf="@+id/app_name_textView"
-                app:layout_constraintTop_toBottomOf="@+id/app_name_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/app_name_textView"
+                tools:text="Al Fayyum" />
 
             <TextView
                 android:id="@+id/date_textView"
@@ -61,10 +61,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_regular"
-                tools:text="Tue, Jun 30"
                 android:textSize="@dimen/text_small"
                 app:layout_constraintStart_toStartOf="@+id/city_name_textView"
-                app:layout_constraintTop_toBottomOf="@+id/city_name_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/city_name_textView"
+                tools:text="Tue, Jun 30" />
 
             <ImageView
                 android:id="@+id/icon"
@@ -72,10 +72,10 @@
                 android:layout_height="120dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:contentDescription="@null"
                 android:src="@drawable/weather_icon"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_textView"
-                android:contentDescription="@null" />
+                app:layout_constraintTop_toBottomOf="@+id/date_textView" />
 
             <TextView
                 android:id="@+id/temprature_textView"
@@ -84,10 +84,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/raleway_medium"
-                tools:text="30° C"
                 android:textSize="48sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/icon" />
+                app:layout_constraintTop_toTopOf="@+id/icon"
+                tools:text="30° C" />
 
             <TextView
                 android:id="@+id/weather_status_textView"
@@ -95,13 +95,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_medium"
-                tools:text="Sunny"
-                android:textSize="@dimen/text_large"
                 android:maxLines="2"
                 android:textAlignment="center"
+                android:textSize="@dimen/text_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/temprature_textView"
-                app:layout_constraintTop_toBottomOf="@+id/temprature_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/temprature_textView"
+                tools:text="Sunny" />
 
             <LinearLayout
                 android:id="@+id/linear_layout"
@@ -154,14 +154,15 @@
                 android:id="@+id/advice_cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/spacing_medium"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_medium"
                 android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="@android:color/transparent"
+                android:padding="@dimen/spacing_medium"
+                style="@style/backgroundCard"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -187,7 +188,7 @@
                         style="@style/generalThemeForText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:fontFamily="@font/raleway_regular"
                         android:text="@string/your_weather_advice_body"
                         android:textSize="@dimen/text_medium" />
