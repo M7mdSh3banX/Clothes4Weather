@@ -59,17 +59,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                     .plus("°C")
             binding.dateTextView.text = getCurrentDate()
             binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
-
             binding.switchIcon.setOnClickListener {
                 binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
             }
-            setImageStatus(weatherResponse)
+            val iconURL = IconWeatherStatus.iconCode(weatherResponse.weatherStatus.joinToString {
+                it.iconWeatherStatus
+            })
+            Glide.with(requireContext()).load(iconURL).into(binding.icon)
         }
-
     }
 
     override fun onError(messageError: String) {
-        Log.i("TAG_TEST", "Fail Response: $messageError")
+        Log.i(TAG, "Fail Response: $messageError")
     }
 
     private fun getCurrentDate(): String {
@@ -87,43 +88,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
             else -> winterClothes
         }
         return selectedImage.random()
-    }
-
-    private fun setImageStatus(weatherResponse: WeatherResponse) {
-        val weatherStatus = weatherResponse.weatherStatus.joinToString {
-            it.statusDescription
-        }
-        when {
-            weatherStatus.contains("clear sky") || weatherStatus.contains("clear") -> {
-                Glide.with(requireContext()).load(clearSkyURL).into(binding.icon)
-            }
-            weatherStatus.contains("few clouds") -> {
-                Glide.with(requireContext()).load(fewCloudsURL).into(binding.icon)
-            }
-            weatherStatus.contains("scattered clouds") || weatherStatus.contains("clouds") -> {
-                Glide.with(requireContext()).load(scatteredCloudsURL).into(binding.icon)
-            }
-            weatherStatus.contains("broken clouds") -> {
-                Glide.with(requireContext()).load(brokenCloudsURL).into(binding.icon)
-            }
-            weatherStatus.contains("shower rain") -> {
-                Glide.with(requireContext()).load(showerRainURL).into(binding.icon)
-            }
-            weatherStatus.contains("rain") -> {
-                Glide.with(requireContext()).load(rainURL).into(binding.icon)
-            }
-            weatherStatus.contains("thunderstorm") -> {
-                Glide.with(requireContext()).load(thunderstormURL).into(binding.icon)
-            }
-            weatherStatus.contains("snow") -> {
-                Glide.with(requireContext()).load(snowURL).into(binding.icon)
-            }
-            weatherStatus.contains("mist") -> {
-                Glide.with(requireContext()).load(mistURL).into(binding.icon)
-            }
-            else -> {
-                Glide.with(requireContext()).load(clearSkyURL).into(binding.icon)
-            }
-        }
     }
 }
