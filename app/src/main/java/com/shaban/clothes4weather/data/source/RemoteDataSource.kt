@@ -2,6 +2,7 @@ package com.shaban.clothes4weather.data.source
 
 import android.util.Log
 import com.google.gson.Gson
+import com.shaban.clothes4weather.BuildConfig
 import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.utils.Constants
 import com.shaban.clothes4weather.utils.SharedPreferencesUtil.latitude
@@ -15,7 +16,7 @@ object RemoteDataSource {
     fun makeRequestUsingOKHTTP(callBack: RemoteDataSourceInterface) {
 
         val request = Request.Builder()
-            .url("${Constants.BASE_URL}/weather?lat=$latitude&lon=$longitude&appid=${Constants.API_KEY_VALUE}")
+            .url("${Constants.BASE_URL}/weather?lat=$latitude&lon=$longitude&appid=${BuildConfig.API_KEY}")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
