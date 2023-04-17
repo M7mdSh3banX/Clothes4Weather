@@ -3,6 +3,7 @@ package com.shaban.clothes4weather.ui
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
+import com.shaban.clothes4weather.R
 import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.data.source.LocalDataSource
 import com.shaban.clothes4weather.data.source.RemoteDataSource
@@ -59,14 +60,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                     .toString()
                     .plus("°C")
             binding.dateTextView.text = getCurrentDate()
-            binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
+            binding.selectedImageView.setImageResource(getRandomWeatherImage(weatherResponse))
             binding.switchIcon.setOnClickListener {
-                binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
+                binding.selectedImageView.setImageResource(getRandomWeatherImage(weatherResponse))
             }
-            val iconURL = iconCode(weatherResponse.weatherStatus.joinToString {
-                it.iconWeatherStatus
-            })
-            Glide.with(requireContext()).load(iconURL).into(binding.weatherStatusIcon)
+            setWeatherStatusImage(weatherResponse)
         }
     }
 
@@ -81,7 +79,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
         return current
     }
 
-    private fun getRandomImageWeather(weatherResponse: WeatherResponse): Int {
+    private fun getRandomWeatherImage(weatherResponse: WeatherResponse): Int {
         val temperature = weatherResponse.weatherMainDetails.temperature - 273.15
         val selectedImage = when {
             temperature <= 25.0F -> LocalDataSource.winterClothes
@@ -89,5 +87,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
             else -> LocalDataSource.winterClothes
         }
         return selectedImage.random()
+    }
+
+    private fun setWeatherStatusImage(weatherResponse: WeatherResponse) {
+        val iconCode = weatherResponse.weatherStatus.joinToString {
+            it.iconWeatherStatus
+        }
+        return when (iconCode) {
+            "01d" -> binding.weatherStatusIcon.setImageResource(R.drawable.sun)
+            "02d" -> binding.weatherStatusIcon.setImageResource(R.drawable.few_cloud)
+            "03d" -> binding.weatherStatusIcon.setImageResource(R.drawable.clouds)
+            "04d" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon1)
+            "09d" -> binding.weatherStatusIcon.setImageResource(R.drawable.shower_rain)
+            "10d" -> binding.weatherStatusIcon.setImageResource(R.drawable.rainy)
+            "11d" -> binding.weatherStatusIcon.setImageResource(R.drawable.thunderstorm)
+            "13d" -> binding.weatherStatusIcon.setImageResource(R.drawable.snow)
+            "50d" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon2)
+            "01n" -> binding.weatherStatusIcon.setImageResource(R.drawable.moon)
+            "02n" -> binding.weatherStatusIcon.setImageResource(R.drawable.scarred)
+            "03n" -> binding.weatherStatusIcon.setImageResource(R.drawable.clouds)
+            "04n" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon2)
+            "09n" -> binding.weatherStatusIcon.setImageResource(R.drawable.rainy)
+            "10n" -> binding.weatherStatusIcon.setImageResource(R.drawable.rain)
+            "11n" -> binding.weatherStatusIcon.setImageResource(R.drawable.thunderstorm)
+            "13n" -> binding.weatherStatusIcon.setImageResource(R.drawable.snow)
+            "50n" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon2)
+            else -> binding.weatherStatusIcon.setImageResource(R.drawable.sun)
+        }
     }
 }
