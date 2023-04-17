@@ -71,7 +71,7 @@
     </style>
 
     <style name="backgroundCard" parent="">
-        <item name="cardBackgroundColor">@color/white_100</item>
+        <item name="cardBackgroundColor">@color/white_300</item>
     </style>
 
 </resources>

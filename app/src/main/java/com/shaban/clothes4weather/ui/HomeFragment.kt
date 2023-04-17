@@ -66,7 +66,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
             val iconURL = iconCode(weatherResponse.weatherStatus.joinToString {
                 it.iconWeatherStatus
             })
-            Glide.with(requireContext()).load(iconURL).into(binding.icon)
+            Glide.with(requireContext()).load(iconURL).into(binding.weatherStatusIcon)
         }
     }
 

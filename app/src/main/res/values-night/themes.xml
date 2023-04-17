@@ -71,7 +71,7 @@
     </style>
 
     <style name="backgroundCard" parent="">
-        <item name="cardBackgroundColor">@color/theme_dark_background</item>
+        <item name="cardBackgroundColor">#091B2B</item>
     </style>
 
 </resources>
