@@ -11,4 +11,5 @@ object Constants {
     const val LATITUDE_QUERY_PARAM = "lat"
     const val API_KEY_QUERY_PARAM = "appid"
     const val API_KEY_VALUE = "3981ad69dd8900d87fc6a663bfa37581"
+    const val ICON_BASE_URL = "https://openweathermap.org/img/wn/"
 }

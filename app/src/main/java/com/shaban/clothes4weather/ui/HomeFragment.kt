@@ -2,8 +2,8 @@ package com.shaban.clothes4weather.ui
 
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
-import com.shaban.clothes4weather.data.domain.summerClothes
-import com.shaban.clothes4weather.data.domain.winterClothes
+import com.bumptech.glide.Glide
+import com.shaban.clothes4weather.data.domain.*
 import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.data.source.RemoteDataSource
 import com.shaban.clothes4weather.data.source.RemoteDataSourceInterface
@@ -86,5 +86,44 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
             else -> winterClothes
         }
         return selectedImage.random()
+    }
+
+    private fun setImageStatus(weatherResponse: WeatherResponse): Int {
+        val weatherStatus = weatherResponse.weatherStatus.joinToString {
+            it.statusDescription
+        }
+        val selectedImageStatus = when (weatherStatus) {
+            "clear status" -> {
+                Glide.with(requireContext()).load(clearSkyURL).into(binding.icon)
+            }
+            "few clouds" -> {
+                Glide.with(requireContext()).load(fewCloudsURL).into(binding.icon)
+            }
+            "scattered clouds" -> {
+                Glide.with(requireContext()).load(scatteredCloudsURL).into(binding.icon)
+            }
+            "broken clouds" -> {
+                Glide.with(requireContext()).load(brokenCloudsURL).into(binding.icon)
+            }
+            "shower rain" -> {
+                Glide.with(requireContext()).load(showerRainURL).into(binding.icon)
+            }
+            "rain" -> {
+                Glide.with(requireContext()).load(rainURL).into(binding.icon)
+            }
+            "thunderstorm" -> {
+                Glide.with(requireContext()).load(thunderstormURL).into(binding.icon)
+            }
+            "snow" -> {
+                Glide.with(requireContext()).load(snowURL).into(binding.icon)
+            }
+            "mist" -> {
+                Glide.with(requireContext()).load(mistURL).into(binding.icon)
+            }
+            else -> {
+                Glide.with(requireContext()).load(clearSkyURL).into(binding.icon)
+            }
+        }
+        return selectedImageStatus.toString().toInt()
     }
 }
