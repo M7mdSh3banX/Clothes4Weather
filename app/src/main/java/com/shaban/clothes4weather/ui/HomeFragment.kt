@@ -93,32 +93,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
         val weatherStatus = weatherResponse.weatherStatus.joinToString {
             it.statusDescription
         }
-        val selectedImageStatus = when (weatherStatus) {
-            "clear status" -> {
+        when {
+            weatherStatus.contains("clear sky") || weatherStatus.contains("clear") -> {
                 Glide.with(requireContext()).load(clearSkyURL).into(binding.icon)
             }
-            "few clouds" -> {
+            weatherStatus.contains("few clouds") -> {
                 Glide.with(requireContext()).load(fewCloudsURL).into(binding.icon)
             }
-            "scattered clouds" -> {
+            weatherStatus.contains("scattered clouds") || weatherStatus.contains("clouds") -> {
                 Glide.with(requireContext()).load(scatteredCloudsURL).into(binding.icon)
             }
-            "broken clouds" -> {
+            weatherStatus.contains("broken clouds") -> {
                 Glide.with(requireContext()).load(brokenCloudsURL).into(binding.icon)
             }
-            "shower rain" -> {
+            weatherStatus.contains("shower rain") -> {
                 Glide.with(requireContext()).load(showerRainURL).into(binding.icon)
             }
-            "rain" -> {
+            weatherStatus.contains("rain") -> {
                 Glide.with(requireContext()).load(rainURL).into(binding.icon)
             }
-            "thunderstorm" -> {
+            weatherStatus.contains("thunderstorm") -> {
                 Glide.with(requireContext()).load(thunderstormURL).into(binding.icon)
             }
-            "snow" -> {
+            weatherStatus.contains("snow") -> {
                 Glide.with(requireContext()).load(snowURL).into(binding.icon)
             }
-            "mist" -> {
+            weatherStatus.contains("mist") -> {
                 Glide.with(requireContext()).load(mistURL).into(binding.icon)
             }
             else -> {
