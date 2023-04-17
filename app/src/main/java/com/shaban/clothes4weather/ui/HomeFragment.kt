@@ -3,9 +3,8 @@ package com.shaban.clothes4weather.ui
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
-import com.shaban.clothes4weather.data.domain.summerClothes
-import com.shaban.clothes4weather.data.domain.winterClothes
 import com.shaban.clothes4weather.data.models.WeatherResponse
+import com.shaban.clothes4weather.data.source.LocalDataSource
 import com.shaban.clothes4weather.data.source.RemoteDataSource
 import com.shaban.clothes4weather.data.source.RemoteDataSourceInterface
 import com.shaban.clothes4weather.databinding.FragmentHomeBinding
@@ -85,9 +84,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
     private fun getRandomImageWeather(weatherResponse: WeatherResponse): Int {
         val temperature = weatherResponse.weatherMainDetails.temperature - 273.15
         val selectedImage = when {
-            temperature <= 25.0F -> winterClothes
-            temperature in 26.0F..60.0F -> summerClothes
-            else -> winterClothes
+            temperature <= 25.0F -> LocalDataSource.winterClothes
+            temperature in 26.0F..60.0F -> LocalDataSource.summerClothes
+            else -> LocalDataSource.winterClothes
         }
         return selectedImage.random()
     }
