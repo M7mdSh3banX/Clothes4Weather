@@ -8,10 +8,10 @@
     tools:context=".ui.OnboardingFragment">
 
     <ImageView
-        android:id="@+id/onboarding3_image"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="64dp"
+        android:id="@+id/onboarding_image"
+        android:layout_width="@dimen/onboarding_image"
+        android:layout_height="@dimen/onboarding_image"
+        android:layout_marginTop="@dimen/spacing_very_giant"
         android:contentDescription="@null"
         android:scaleType="centerCrop"
         android:src="@drawable/weather"
@@ -22,16 +22,16 @@
     <TextView
         android:id="@+id/onboarding3_title"
         style="@style/onboardingGeneralTextStyle.Title"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/spacing_giant"
         android:text="@string/onboarding_screen_title"
-        app:layout_constraintEnd_toEndOf="@+id/onboarding3_image"
-        app:layout_constraintStart_toStartOf="@+id/onboarding3_image"
-        app:layout_constraintTop_toBottomOf="@+id/onboarding3_image" />
+        app:layout_constraintEnd_toEndOf="@+id/onboarding_image"
+        app:layout_constraintStart_toStartOf="@+id/onboarding_image"
+        app:layout_constraintTop_toBottomOf="@+id/onboarding_image" />
 
     <TextView
         android:id="@+id/onboarding1_desc"
         style="@style/onboardingGeneralTextStyle.Description"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/spacing_small"
         android:text="@string/onboarding2_screen_desc"
         app:layout_constraintEnd_toEndOf="@+id/onboarding3_title"
         app:layout_constraintStart_toStartOf="@+id/onboarding3_title"

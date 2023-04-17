@@ -32,5 +32,6 @@
     <dimen name="weather_status_icon">120dp</dimen>
     <dimen name="outfit_image">240dp</dimen>
     <dimen name="image_button">48dp</dimen>
+    <dimen name="onboarding_image">350dp</dimen>
 
 </resources>
