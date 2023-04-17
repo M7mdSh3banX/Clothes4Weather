@@ -3,13 +3,15 @@ package com.shaban.clothes4weather.ui
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
-import com.shaban.clothes4weather.data.domain.*
+import com.shaban.clothes4weather.data.domain.summerClothes
+import com.shaban.clothes4weather.data.domain.winterClothes
 import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.data.source.RemoteDataSource
 import com.shaban.clothes4weather.data.source.RemoteDataSourceInterface
 import com.shaban.clothes4weather.databinding.FragmentHomeBinding
 import com.shaban.clothes4weather.ui.base.BaseFragment
 import com.shaban.clothes4weather.utils.SharedPreferencesUtil
+import com.shaban.clothes4weather.utils.iconCode
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -62,7 +64,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
             binding.switchIcon.setOnClickListener {
                 binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
             }
-            val iconURL = IconWeatherStatus.iconCode(weatherResponse.weatherStatus.joinToString {
+            val iconURL = iconCode(weatherResponse.weatherStatus.joinToString {
                 it.iconWeatherStatus
             })
             Glide.with(requireContext()).load(iconURL).into(binding.icon)
@@ -81,10 +83,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
     }
 
     private fun getRandomImageWeather(weatherResponse: WeatherResponse): Int {
-        val temprature = weatherResponse.weatherMainDetails.temperature - 273.15
+        val temperature = weatherResponse.weatherMainDetails.temperature - 273.15
         val selectedImage = when {
-            temprature <= 25.0F -> winterClothes
-            temprature in 26.0F..60.0F -> summerClothes
+            temperature <= 25.0F -> winterClothes
+            temperature in 26.0F..60.0F -> summerClothes
             else -> winterClothes
         }
         return selectedImage.random()
