@@ -63,6 +63,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
             binding.switchIcon.setOnClickListener {
                 binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
             }
+            setImageStatus(weatherResponse)
         }
 
     }
@@ -88,7 +89,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
         return selectedImage.random()
     }
 
-    private fun setImageStatus(weatherResponse: WeatherResponse): Int {
+    private fun setImageStatus(weatherResponse: WeatherResponse) {
         val weatherStatus = weatherResponse.weatherStatus.joinToString {
             it.statusDescription
         }
@@ -124,6 +125,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                 Glide.with(requireContext()).load(clearSkyURL).into(binding.icon)
             }
         }
-        return selectedImageStatus.toString().toInt()
     }
 }
