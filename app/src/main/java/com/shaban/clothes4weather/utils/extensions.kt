@@ -11,6 +11,6 @@ fun Fragment.replaceFragment(fragment: Fragment) {
     fragmentTransaction.commit()
 }
 
-fun Fragment.iconCode(code: String): String {
+fun iconCode(code: String): String {
     return "${Constants.ICON_BASE_URL}$code@4x.png"
 }
