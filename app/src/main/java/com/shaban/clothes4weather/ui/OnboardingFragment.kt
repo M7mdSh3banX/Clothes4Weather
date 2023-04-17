@@ -76,7 +76,7 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener {
                     val location: Location? = it.result
                     if (location == null)
-                        Toast.makeText(requireContext(), "Null Recieved!!", Toast.LENGTH_SHORT)
+                        Toast.makeText(requireContext(), "Null Received!!", Toast.LENGTH_SHORT)
                             .show()
                     else {
                         Toast.makeText(requireContext(), "Get Success", Toast.LENGTH_SHORT).show()
