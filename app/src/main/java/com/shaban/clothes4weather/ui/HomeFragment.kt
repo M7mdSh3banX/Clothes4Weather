@@ -58,7 +58,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                     .toString()
                     .plus("°C")
             binding.dateTextView.text = getCurrentDate()
-            binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse) as Int)
+            binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
+
+            binding.switchIcon.setOnClickListener {
+                binding.selectedImageView.setImageResource(getRandomImageWeather(weatherResponse))
+            }
         }
 
     }
@@ -74,7 +78,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
         return current
     }
 
-    private fun getRandomImageWeather(weatherResponse: WeatherResponse): Any {
+    private fun getRandomImageWeather(weatherResponse: WeatherResponse): Int {
         val temprature = weatherResponse.weatherMainDetails.temperature - 273.15
         val selectedImage = when {
             temprature <= 25.0F -> winterClothes

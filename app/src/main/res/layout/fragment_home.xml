@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/spacing_small"
-        app:layout_constraintBottom_toTopOf="@id/switch_ic"
+        app:layout_constraintBottom_toTopOf="@id/switch_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -202,7 +202,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <ImageButton
-        android:id="@+id/switch_ic"
+        android:id="@+id/switch_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
