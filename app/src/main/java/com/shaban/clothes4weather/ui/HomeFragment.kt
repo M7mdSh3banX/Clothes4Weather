@@ -26,7 +26,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
         SharedPreferencesUtil.initPreferencesUtil(requireContext())
 
         RemoteDataSource.makeRequestUsingOKHTTP(this)
-
         isNightMode()
     }
 
@@ -63,7 +62,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
             binding.switchIcon.setOnClickListener {
                 val randomWeatherImage = getRandomWeatherImage(weatherResponse)
                 binding.selectedImageView.setImageResource(randomWeatherImage)
-                SharedPreferencesUtil.chosenOutfit = randomWeatherImage
             }
         }
     }
@@ -81,12 +79,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
 
     private fun getRandomWeatherImage(weatherResponse: WeatherResponse): Int {
         val temperature = weatherResponse.weatherMainDetails.temperature - 273.15
-        val selectedImage = when {
+        val selectedImages = when {
             temperature <= 25.0F -> LocalDataSource.winterClothes
             temperature in 26.0F..60.0F -> LocalDataSource.summerClothes
             else -> LocalDataSource.winterClothes
         }
-        return selectedImage.random()
+        val selectedImage = selectedImages.random()
+
+        if (selectedImage == SharedPreferencesUtil.chosenOutfit)
+            getRandomWeatherImage(weatherResponse)
+
+        SharedPreferencesUtil.chosenOutfit = selectedImage
+        return selectedImage
     }
 
     private fun setWeatherStatusImage(weatherResponse: WeatherResponse) {
