@@ -94,29 +94,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
     }
 
     private fun setWeatherStatusImage(weatherResponse: WeatherResponse) {
-        val iconCode = weatherResponse.weatherStatus.joinToString {
-            it.iconWeatherStatus
-        }
-        return when (iconCode) {
-            "01d" -> binding.weatherStatusIcon.setImageResource(R.drawable.sun)
-            "02d" -> binding.weatherStatusIcon.setImageResource(R.drawable.few_cloud)
-            "03d" -> binding.weatherStatusIcon.setImageResource(R.drawable.clouds)
-            "04d" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon1)
-            "09d" -> binding.weatherStatusIcon.setImageResource(R.drawable.shower_rain)
-            "10d" -> binding.weatherStatusIcon.setImageResource(R.drawable.rainy)
-            "11d" -> binding.weatherStatusIcon.setImageResource(R.drawable.thunderstorm)
-            "13d" -> binding.weatherStatusIcon.setImageResource(R.drawable.snow)
-            "50d" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon2)
-            "01n" -> binding.weatherStatusIcon.setImageResource(R.drawable.moon)
-            "02n" -> binding.weatherStatusIcon.setImageResource(R.drawable.scarred)
-            "03n" -> binding.weatherStatusIcon.setImageResource(R.drawable.clouds)
-            "04n" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon2)
-            "09n" -> binding.weatherStatusIcon.setImageResource(R.drawable.rainy)
-            "10n" -> binding.weatherStatusIcon.setImageResource(R.drawable.rain)
-            "11n" -> binding.weatherStatusIcon.setImageResource(R.drawable.thunderstorm)
-            "13n" -> binding.weatherStatusIcon.setImageResource(R.drawable.snow)
-            "50n" -> binding.weatherStatusIcon.setImageResource(R.drawable.icon2)
-            else -> binding.weatherStatusIcon.setImageResource(R.drawable.sun)
+        binding.weatherStatusIcon.apply {
+            when (weatherResponse.weatherStatus.joinToString { it.iconWeatherStatus }) {
+                "01d" -> setImageResource(R.drawable.sun)
+                "02d" -> setImageResource(R.drawable.few_cloud)
+                "03d" -> setImageResource(R.drawable.clouds)
+                "04d" -> setImageResource(R.drawable.icon1)
+                "09d" -> setImageResource(R.drawable.shower_rain)
+                "10d" -> setImageResource(R.drawable.rainy)
+                "11d" -> setImageResource(R.drawable.thunderstorm)
+                "13d" -> setImageResource(R.drawable.snow)
+                "50d" -> setImageResource(R.drawable.icon2)
+                "01n" -> setImageResource(R.drawable.moon)
+                "02n" -> setImageResource(R.drawable.scarred)
+                "03n" -> setImageResource(R.drawable.clouds)
+                "04n" -> setImageResource(R.drawable.icon2)
+                "09n" -> setImageResource(R.drawable.rainy)
+                "10n" -> setImageResource(R.drawable.rain)
+                "11n" -> setImageResource(R.drawable.thunderstorm)
+                "13n" -> setImageResource(R.drawable.snow)
+                "50n" -> setImageResource(R.drawable.icon2)
+                else -> setImageResource(R.drawable.sun)
+            }
         }
     }
 }
