@@ -192,7 +192,7 @@
                         android:layout_marginStart="@dimen/spacing_small"
                         android:layout_marginBottom="@dimen/spacing_small"
                         android:fontFamily="@font/raleway_regular"
-                        android:text="@string/your_weather_advice_body"
+                        tools:text="@string/sunny_weather_advice"
                         android:textSize="@dimen/text_medium" />
 
                 </LinearLayout>

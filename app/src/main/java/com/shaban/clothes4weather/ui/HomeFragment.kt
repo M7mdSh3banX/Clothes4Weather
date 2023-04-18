@@ -57,6 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                     .toString()
                     .plus("°C")
             setWeatherStatusImage(weatherResponse)
+            getWeatherAdvice(weatherResponse)
             binding.dateTextView.text = getCurrentDate()
             binding.selectedImageView.setImageResource(getRandomWeatherImage(weatherResponse))
             binding.switchIcon.setOnClickListener {
@@ -115,6 +116,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                 "13n" -> setImageResource(R.drawable.snow)
                 "50n" -> setImageResource(R.drawable.icon2)
                 else -> setImageResource(R.drawable.sun)
+            }
+        }
+    }
+
+    private fun getWeatherAdvice(weatherResponse: WeatherResponse) {
+        binding.adviceBodyTextView.apply {
+            when (weatherResponse.weatherStatus.joinToString { it.iconWeatherStatus }) {
+                "01d" -> text = LocalDataSource.weatherAdvices[0]
+                "02d" -> text = LocalDataSource.weatherAdvices[4]
+                "03d" -> text = LocalDataSource.weatherAdvices[4]
+                "04d" -> text = LocalDataSource.weatherAdvices[4]
+                "09d" -> text = LocalDataSource.weatherAdvices[2]
+                "10d" -> text = LocalDataSource.weatherAdvices[2]
+                "11d" -> text = LocalDataSource.weatherAdvices[3]
+                "13d" -> text = LocalDataSource.weatherAdvices[1]
+                "50d" -> text = LocalDataSource.weatherAdvices[4]
+                "01n" -> text = LocalDataSource.weatherAdvices[0]
+                "02n" -> text = LocalDataSource.weatherAdvices[4]
+                "03n" -> text = LocalDataSource.weatherAdvices[4]
+                "04n" -> text = LocalDataSource.weatherAdvices[4]
+                "09n" -> text = LocalDataSource.weatherAdvices[2]
+                "10n" -> text = LocalDataSource.weatherAdvices[2]
+                "11n" -> text = LocalDataSource.weatherAdvices[3]
+                "13n" -> text = LocalDataSource.weatherAdvices[1]
+                "50n" -> text = LocalDataSource.weatherAdvices[4]
+                else -> text = LocalDataSource.weatherAdvices[0]
             }
         }
     }
