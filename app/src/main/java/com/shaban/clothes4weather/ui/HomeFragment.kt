@@ -2,7 +2,6 @@ package com.shaban.clothes4weather.ui
 
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
-import com.bumptech.glide.Glide
 import com.shaban.clothes4weather.R
 import com.shaban.clothes4weather.data.models.WeatherResponse
 import com.shaban.clothes4weather.data.source.LocalDataSource
@@ -11,7 +10,6 @@ import com.shaban.clothes4weather.data.source.RemoteDataSourceInterface
 import com.shaban.clothes4weather.databinding.FragmentHomeBinding
 import com.shaban.clothes4weather.ui.base.BaseFragment
 import com.shaban.clothes4weather.utils.SharedPreferencesUtil
-import com.shaban.clothes4weather.utils.iconCode
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -59,12 +57,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
                     .toInt()
                     .toString()
                     .plus("°C")
+            setWeatherStatusImage(weatherResponse)
             binding.dateTextView.text = getCurrentDate()
             binding.selectedImageView.setImageResource(getRandomWeatherImage(weatherResponse))
             binding.switchIcon.setOnClickListener {
-                binding.selectedImageView.setImageResource(getRandomWeatherImage(weatherResponse))
+                val randomWeatherImage = getRandomWeatherImage(weatherResponse)
+                binding.selectedImageView.setImageResource(randomWeatherImage)
+                SharedPreferencesUtil.chosenOutfit = randomWeatherImage
             }
-            setWeatherStatusImage(weatherResponse)
         }
     }
 
