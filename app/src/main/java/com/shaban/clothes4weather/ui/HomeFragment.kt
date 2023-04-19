@@ -121,28 +121,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RemoteDataSourceInterf
     }
 
     private fun getWeatherAdvice(weatherResponse: WeatherResponse) {
+        val icon = weatherResponse.weatherStatus.joinToString { it.iconWeatherStatus }
+        val index = when (icon) {
+            "01d", "01n" -> 0
+            "02d", "02n", "03d", "03n", "04d", "04n", "50d", "50n" -> 4
+            "09d", "09n", "10d", "10n" -> 2
+            "11d", "11n" -> 3
+            "13d", "13n" -> 1
+            else -> 0
+        }
         binding.adviceBodyTextView.apply {
-            when (weatherResponse.weatherStatus.joinToString { it.iconWeatherStatus }) {
-                "01d" -> text = LocalDataSource.weatherAdvices[0]
-                "02d" -> text = LocalDataSource.weatherAdvices[4]
-                "03d" -> text = LocalDataSource.weatherAdvices[4]
-                "04d" -> text = LocalDataSource.weatherAdvices[4]
-                "09d" -> text = LocalDataSource.weatherAdvices[2]
-                "10d" -> text = LocalDataSource.weatherAdvices[2]
-                "11d" -> text = LocalDataSource.weatherAdvices[3]
-                "13d" -> text = LocalDataSource.weatherAdvices[1]
-                "50d" -> text = LocalDataSource.weatherAdvices[4]
-                "01n" -> text = LocalDataSource.weatherAdvices[0]
-                "02n" -> text = LocalDataSource.weatherAdvices[4]
-                "03n" -> text = LocalDataSource.weatherAdvices[4]
-                "04n" -> text = LocalDataSource.weatherAdvices[4]
-                "09n" -> text = LocalDataSource.weatherAdvices[2]
-                "10n" -> text = LocalDataSource.weatherAdvices[2]
-                "11n" -> text = LocalDataSource.weatherAdvices[3]
-                "13n" -> text = LocalDataSource.weatherAdvices[1]
-                "50n" -> text = LocalDataSource.weatherAdvices[4]
-                else -> text = LocalDataSource.weatherAdvices[0]
-            }
+            text = LocalDataSource.weatherAdvices[index]
         }
     }
 }
