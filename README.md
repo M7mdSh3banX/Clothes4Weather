@@ -17,10 +17,10 @@ https://user-images.githubusercontent.com/93403099/233182736-54077f64-8736-4da8-
 
 ## Screenshots
 ### Light mode
-<img src="https://user-images.githubusercontent.com/93403099/233184629-cbd80e7c-5269-426f-96a0-d434d39545ee.jpg" width="288" height="640"> <img src="https://user-images.githubusercontent.com/93403099/233185389-1bb13890-599d-4512-80f5-6cf0137e7207.jpg" width="288" height="640"> <img src="https://user-images.githubusercontent.com/93403099/233185320-596b80f6-886a-43fe-96fc-53431c2c4f5a.jpg" width="288" height="640">
+<img src="https://user-images.githubusercontent.com/93403099/233184629-cbd80e7c-5269-426f-96a0-d434d39545ee.jpg" width="192" height="426.67"> <img src="https://user-images.githubusercontent.com/93403099/233185389-1bb13890-599d-4512-80f5-6cf0137e7207.jpg" width="192" height="426.67"> <img src="https://user-images.githubusercontent.com/93403099/233185320-596b80f6-886a-43fe-96fc-53431c2c4f5a.jpg" width="192" height="426.67">
 
 ### Dark mode
-<img src="https://user-images.githubusercontent.com/93403099/233185919-0b527f6a-fb3c-4108-8001-25ddf7cca960.jpg" width="288" height="640"> <img src="https://user-images.githubusercontent.com/93403099/233185921-cac505e1-d1d0-4063-9125-49681f33cfcb.jpg" width="288" height="640"> <img src="https://user-images.githubusercontent.com/93403099/233185924-27e60213-40d3-4d32-a23d-387f7512acda.jpg" width="288" height="640">
+<img src="https://user-images.githubusercontent.com/93403099/233185919-0b527f6a-fb3c-4108-8001-25ddf7cca960.jpg" width="192" height="426.67"> <img src="https://user-images.githubusercontent.com/93403099/233185921-cac505e1-d1d0-4063-9125-49681f33cfcb.jpg" width="192" height="426.67"> <img src="https://user-images.githubusercontent.com/93403099/233185924-27e60213-40d3-4d32-a23d-387f7512acda.jpg" width="192" height="426.67">
 
 
 ## Built With
