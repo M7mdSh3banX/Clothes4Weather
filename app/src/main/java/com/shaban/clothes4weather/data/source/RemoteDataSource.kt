@@ -13,5 +13,6 @@ object RemoteDataSource {
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()
 
-    val weatherService = retrofit.create(RemoteDataSourceInterface::class.java)
+    val weatherService: RemoteDataSourceInterface =
+        retrofit.create(RemoteDataSourceInterface::class.java)
 }
