@@ -1,4 +1,4 @@
-package com.shaban.clothes4weather.data
+package com.shaban.clothes4weather.data.repository
 
 import com.shaban.clothes4weather.data.source.RemoteDataSource
 
