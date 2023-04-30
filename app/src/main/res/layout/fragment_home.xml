@@ -60,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_medium"
                     android:fontFamily="@font/raleway_medium"
+                    android:text="@{viewModel.weatherResponseLiveData.cityName}"
                     android:textSize="@dimen/text_giant"
                     app:layout_constraintStart_toStartOf="@+id/app_name_text_view"
                     app:layout_constraintTop_toBottomOf="@+id/app_name_text_view"
@@ -90,6 +91,7 @@
                 <TextView
                     android:id="@+id/temprature_text_view"
                     style="@style/generalThemeForText"
+                    temperatureInCelsius="@{viewModel.weatherResponseLiveData.weatherMainDetails.temperature}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/spacing_medium"
@@ -111,6 +113,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/temprature_text_view"
                     app:layout_constraintTop_toBottomOf="@+id/temprature_text_view"
+                    app:weatherStatus="@{viewModel.weatherResponseLiveData.weatherStatus}"
                     tools:text="Sunny" />
 
                 <LinearLayout
