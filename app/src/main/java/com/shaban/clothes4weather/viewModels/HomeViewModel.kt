@@ -23,7 +23,7 @@ class HomeViewModel : ViewModel() {
         getWeatherResponse()
     }
 
-    fun getWeatherResponse() {
+    private fun getWeatherResponse() {
         compositeDisposable.add(
             repository.getWeather()
                 .subscribeOn(Schedulers.io())
