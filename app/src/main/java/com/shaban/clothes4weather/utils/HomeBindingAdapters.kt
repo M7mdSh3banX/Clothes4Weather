@@ -57,3 +57,18 @@ fun setRandomWeatherImage(imageView: ImageView, temp: Float?) {
     SharedPreferencesUtil.chosenOutfit = selectedImage
     imageView.setImageResource(selectedImage)
 }
+
+@BindingAdapter(value = ["weatherAdvice"])
+fun setWeatherAdvice(textView: TextView, weatherStatus: List<WeatherStatus>?) {
+    val index = when (weatherStatus?.joinToString { it.iconWeatherStatus }) {
+        "01d", "01n" -> 0
+        "02d", "02n", "03d", "03n", "04d", "04n", "50d", "50n" -> 4
+        "09d", "09n", "10d", "10n" -> 2
+        "11d", "11n" -> 3
+        "13d", "13n" -> 1
+        else -> 0
+    }
+    textView.apply {
+        text = LocalDataSource.weatherAdvices[index]
+    }
+}

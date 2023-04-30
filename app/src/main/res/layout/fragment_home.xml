@@ -208,6 +208,7 @@
                             android:layout_marginBottom="@dimen/spacing_small"
                             android:fontFamily="@font/raleway_regular"
                             android:textSize="@dimen/text_medium"
+                            app:weatherAdvice="@{viewModel.weatherResponseLiveData.weatherStatus}"
                             tools:text="@string/sunny_weather_advice" />
 
                     </LinearLayout>
