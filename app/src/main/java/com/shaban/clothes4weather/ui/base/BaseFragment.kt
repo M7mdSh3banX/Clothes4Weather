@@ -5,33 +5,34 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<VB : ViewBinding> : Fragment() {
+abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
 
     abstract val TAG: String
-    private var _binding: VB? = null
+    private var _binding: DB? = null
     protected val binding
         get() = _binding!!
 
-    abstract fun getViewBinding(): VB
+    abstract fun getLayoutResId(): Int
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = getViewBinding()
+        _binding = DataBindingUtil.inflate(inflater, getLayoutResId(), container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setup()
+        initView()
     }
 
-    abstract fun setup()
+    abstract fun initView()
 
     protected fun log(value: Any) = Log.i(TAG, value.toString())
 
