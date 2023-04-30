@@ -1,69 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    style="@style/background"
-    android:layout_height="match_parent"
-    tools:context=".ui.OnboardingFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/onboarding_image"
-        android:layout_width="@dimen/onboarding_image"
-        android:layout_height="@dimen/onboarding_image"
-        android:layout_marginTop="@dimen/spacing_very_giant"
-        android:contentDescription="@null"
-        android:scaleType="centerCrop"
-        android:src="@drawable/weather"
-        app:layout_constraintEnd_toEndOf="@id/right_guideline"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toTopOf="@+id/top_guideline" />
+    <data>
 
-    <TextView
-        android:id="@+id/onboarding3_title"
-        style="@style/onboardingGeneralTextStyle.Title"
-        android:layout_marginTop="@dimen/spacing_giant"
-        android:text="@string/onboarding_screen_title"
-        app:layout_constraintEnd_toEndOf="@+id/onboarding_image"
-        app:layout_constraintStart_toStartOf="@+id/onboarding_image"
-        app:layout_constraintTop_toBottomOf="@+id/onboarding_image" />
+    </data>
 
-    <TextView
-        android:id="@+id/onboarding1_desc"
-        style="@style/onboardingGeneralTextStyle.Description"
-        android:layout_marginTop="@dimen/spacing_small"
-        android:text="@string/onboarding2_screen_desc"
-        app:layout_constraintEnd_toEndOf="@+id/onboarding3_title"
-        app:layout_constraintStart_toStartOf="@+id/onboarding3_title"
-        app:layout_constraintTop_toBottomOf="@+id/onboarding3_title" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        style="@style/background"
+        android:layout_height="match_parent"
+        tools:context=".ui.OnboardingFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/get_location_button"
-        style="@style/getLocationButtonStyle"
-        android:text="@string/button_get_your_location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline" />
+        <ImageView
+            android:id="@+id/onboarding_image"
+            android:layout_width="@dimen/onboarding_image"
+            android:layout_height="@dimen/onboarding_image"
+            android:layout_marginTop="@dimen/spacing_very_giant"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/weather"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/top_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/spacing_medium" />
+        <TextView
+            android:id="@+id/onboarding3_title"
+            style="@style/onboardingGeneralTextStyle.Title"
+            android:layout_marginTop="@dimen/spacing_giant"
+            android:text="@string/onboarding_screen_title"
+            app:layout_constraintEnd_toEndOf="@+id/onboarding_image"
+            app:layout_constraintStart_toStartOf="@+id/onboarding_image"
+            app:layout_constraintTop_toBottomOf="@+id/onboarding_image" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/left_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/spacing_medium" />
+        <TextView
+            android:id="@+id/onboarding1_desc"
+            style="@style/onboardingGeneralTextStyle.Description"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="@string/onboarding2_screen_desc"
+            app:layout_constraintEnd_toEndOf="@+id/onboarding3_title"
+            app:layout_constraintStart_toStartOf="@+id/onboarding3_title"
+            app:layout_constraintTop_toBottomOf="@+id/onboarding3_title" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/right_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/spacing_medium" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/get_location_button"
+            style="@style/getLocationButtonStyle"
+            android:text="@string/button_get_your_location"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+            app:layout_constraintStart_toStartOf="@+id/left_guideline" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/spacing_medium" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_medium" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_medium" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

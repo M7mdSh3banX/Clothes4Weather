@@ -1,215 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.core.widget.NestedScrollView
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_zero"
-        android:layout_marginBottom="@dimen/spacing_small"
-        app:layout_constraintBottom_toTopOf="@id/switch_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.HomeFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="@dimen/spacing_zero"
+            android:layout_marginBottom="@dimen/spacing_small"
+            app:layout_constraintBottom_toTopOf="@id/switch_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/app_name_text_view"
-                style="@style/generalThemeForText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_medium"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="@string/app_name"
-                android:textSize="@dimen/text_semi_giant"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_mode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_medium"
-                android:thumb="@drawable/thumb"
-                app:layout_constraintBottom_toBottomOf="@+id/app_name_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/app_name_text_view"
-                app:track="@drawable/track" />
-
-            <TextView
-                android:id="@+id/city_name_text_view"
-                style="@style/generalThemeForText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:fontFamily="@font/raleway_medium"
-                android:textSize="@dimen/text_giant"
-                app:layout_constraintStart_toStartOf="@+id/app_name_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/app_name_text_view"
-                tools:text="Al Fayyum" />
-
-            <TextView
-                android:id="@+id/date_text_view"
-                style="@style/generalThemeForText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_regular"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/city_name_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/city_name_text_view"
-                tools:text="Tue, Jun 30" />
-
-            <ImageView
-                android:id="@+id/weather_status_icon"
-                android:layout_width="@dimen/weather_status_icon"
-                android:layout_height="@dimen/weather_status_icon"
-                android:layout_marginStart="@dimen/spacing_medium"
-                android:layout_marginTop="@dimen/spacing_giant"
-                android:contentDescription="@null"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_text_view"
-                tools:src="@drawable/weather_icon" />
-
-            <TextView
-                android:id="@+id/temprature_text_view"
-                style="@style/generalThemeForText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_medium"
-                android:fontFamily="@font/raleway_medium"
-                android:textSize="@dimen/text_huge"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/weather_status_icon"
-                tools:text="30° C" />
-
-            <TextView
-                android:id="@+id/weather_status_textView"
-                style="@style/generalThemeForText"
-                android:layout_width="@dimen/spacing_zero"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:maxLines="2"
-                android:textAlignment="center"
-                android:textSize="@dimen/text_large"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/temprature_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/temprature_text_view"
-                tools:text="Sunny" />
-
-            <LinearLayout
-                android:id="@+id/linear_layout"
-                android:layout_width="@dimen/spacing_zero"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_medium"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:layout_marginEnd="@dimen/spacing_medium"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/weather_status_icon">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/title_text_view"
+                    android:id="@+id/app_name_text_view"
                     style="@style/generalThemeForText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:text="@string/app_name"
+                    android:textSize="@dimen/text_semi_giant"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:thumb="@drawable/thumb"
+                    app:layout_constraintBottom_toBottomOf="@+id/app_name_text_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/app_name_text_view"
+                    app:track="@drawable/track" />
+
+                <TextView
+                    android:id="@+id/city_name_text_view"
+                    style="@style/generalThemeForText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
                     android:fontFamily="@font/raleway_medium"
-                    android:text="@string/your_outfit_today"
-                    android:textSize="@dimen/text_giant" />
+                    android:textSize="@dimen/text_giant"
+                    app:layout_constraintStart_toStartOf="@+id/app_name_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/app_name_text_view"
+                    tools:text="Al Fayyum" />
+
+                <TextView
+                    android:id="@+id/date_text_view"
+                    style="@style/generalThemeForText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_regular"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/city_name_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/city_name_text_view"
+                    tools:text="Tue, Jun 30" />
+
+                <ImageView
+                    android:id="@+id/weather_status_icon"
+                    android:layout_width="@dimen/weather_status_icon"
+                    android:layout_height="@dimen/weather_status_icon"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_giant"
+                    android:contentDescription="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date_text_view"
+                    tools:src="@drawable/weather_icon" />
+
+                <TextView
+                    android:id="@+id/temprature_text_view"
+                    style="@style/generalThemeForText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:fontFamily="@font/raleway_medium"
+                    android:textSize="@dimen/text_huge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/weather_status_icon"
+                    tools:text="30° C" />
+
+                <TextView
+                    android:id="@+id/weather_status_textView"
+                    style="@style/generalThemeForText"
+                    android:layout_width="@dimen/spacing_zero"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:maxLines="2"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/temprature_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/temprature_text_view"
+                    tools:text="Sunny" />
+
+                <LinearLayout
+                    android:id="@+id/linear_layout"
+                    android:layout_width="@dimen/spacing_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/weather_status_icon">
+
+                    <TextView
+                        android:id="@+id/title_text_view"
+                        style="@style/generalThemeForText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="@string/your_outfit_today"
+                        android:textSize="@dimen/text_giant" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/outfit_card_view"
+                        android:layout_width="@dimen/outfit_image"
+                        android:layout_height="@dimen/outfit_image"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_large"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="@dimen/radius_small"
+                        app:cardElevation="@dimen/elevation_zero"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linear_layout">
+
+                        <ImageView
+                            android:id="@+id/selected_image_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            tools:src="@drawable/winter_outfit8" />
+
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/outfit_card_view"
-                    android:layout_width="@dimen/outfit_image"
-                    android:layout_height="@dimen/outfit_image"
-                    android:layout_gravity="center"
+                    android:id="@+id/advice_card_view"
+                    style="@style/backgroundCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginEnd="8dp"
+                    android:alpha="0.8"
                     android:checkable="true"
                     android:clickable="true"
                     android:focusable="true"
-                    app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="@dimen/radius_small"
                     app:cardElevation="@dimen/elevation_zero"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linear_layout">
 
-                    <ImageView
-                        android:id="@+id/selected_image_view"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        tools:src="@drawable/winter_outfit8" />
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/advice_text_view"
+                            style="@style/generalThemeForText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_small"
+                            android:fontFamily="@font/raleway_medium"
+                            android:text="@string/your_weather_advice"
+                            android:textSize="@dimen/text_giant" />
+
+                        <TextView
+                            android:id="@+id/advice_body_textView"
+                            style="@style/generalThemeForText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/spacing_small"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_marginBottom="@dimen/spacing_small"
+                            android:fontFamily="@font/raleway_regular"
+                            tools:text="@string/sunny_weather_advice"
+                            android:textSize="@dimen/text_medium" />
+
+                    </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/advice_card_view"
-                style="@style/backgroundCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:layout_marginEnd="8dp"
-                android:alpha="0.8"
-                android:checkable="true"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="@dimen/radius_small"
-                app:cardElevation="@dimen/elevation_zero"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linear_layout">
+        <ImageButton
+            android:id="@+id/switch_icon"
+            android:layout_width="@dimen/image_button"
+            android:layout_height="@dimen/image_button"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:background="@drawable/switch_button"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_swap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/advice_text_view"
-                        style="@style/generalThemeForText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/spacing_small"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="@string/your_weather_advice"
-                        android:textSize="@dimen/text_giant" />
-
-                    <TextView
-                        android:id="@+id/advice_body_textView"
-                        style="@style/generalThemeForText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/spacing_small"
-                        android:layout_marginStart="@dimen/spacing_small"
-                        android:layout_marginBottom="@dimen/spacing_small"
-                        android:fontFamily="@font/raleway_regular"
-                        tools:text="@string/sunny_weather_advice"
-                        android:textSize="@dimen/text_medium" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
-
-    <ImageButton
-        android:id="@+id/switch_icon"
-        android:layout_width="@dimen/image_button"
-        android:layout_height="@dimen/image_button"
-        android:layout_marginBottom="@dimen/spacing_medium"
-        android:background="@drawable/switch_button"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_swap"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
