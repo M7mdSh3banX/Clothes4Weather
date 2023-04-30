@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.shaban.clothes4weather.viewModels.HomeViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -194,12 +198,12 @@
                             style="@style/generalThemeForText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/spacing_small"
                             android:layout_marginStart="@dimen/spacing_small"
+                            android:layout_marginEnd="@dimen/spacing_small"
                             android:layout_marginBottom="@dimen/spacing_small"
                             android:fontFamily="@font/raleway_regular"
-                            tools:text="@string/sunny_weather_advice"
-                            android:textSize="@dimen/text_medium" />
+                            android:textSize="@dimen/text_medium"
+                            tools:text="@string/sunny_weather_advice" />
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
