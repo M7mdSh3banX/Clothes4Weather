@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.shaban.clothes4weather.R
 import com.shaban.clothes4weather.databinding.FragmentOnboardingBinding
 import com.shaban.clothes4weather.ui.base.BaseFragment
 import com.shaban.clothes4weather.utils.Constants
@@ -26,10 +27,9 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     override val TAG: String
         get() = this::class.simpleName.toString()
 
-    override fun getViewBinding(): FragmentOnboardingBinding =
-        FragmentOnboardingBinding.inflate(layoutInflater)
+    override fun getLayoutResId(): Int = R.layout.fragment_onboarding
 
-    override fun setup() {
+    override fun initView() {
         SharedPreferencesUtil.initPreferencesUtil(requireContext())
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireContext())
