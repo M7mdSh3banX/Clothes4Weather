@@ -16,7 +16,7 @@ class HomeViewModel : ViewModel() {
     private val repository = WeatherRepository()
 
     private val _weatherResponseMutableLiveData = MutableLiveData<WeatherResponse>()
-    private val weatherResponseLiveData: LiveData<WeatherResponse>
+    val weatherResponseLiveData: LiveData<WeatherResponse>
         get() = _weatherResponseMutableLiveData
 
     init {
