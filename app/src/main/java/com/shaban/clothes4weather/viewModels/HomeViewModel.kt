@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shaban.clothes4weather.data.WeatherRepository
+import com.shaban.clothes4weather.data.repository.WeatherRepository
 import com.shaban.clothes4weather.data.models.WeatherResponse
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
