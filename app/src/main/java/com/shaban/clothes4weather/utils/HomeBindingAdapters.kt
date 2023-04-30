@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.shaban.clothes4weather.R
 import com.shaban.clothes4weather.data.models.WeatherStatus
+import com.shaban.clothes4weather.data.source.LocalDataSource
 
 @BindingAdapter(value = ["temperatureInCelsius"])
 fun setTemperatureInCelsius(textView: TextView, temperature: Float?) {
@@ -38,4 +39,21 @@ fun setWeatherStatusImage(imageView: ImageView, weatherStatus: List<WeatherStatu
             else -> setImageResource(R.drawable.sun)
         }
     }
+}
+
+@BindingAdapter(value = ["randomWeatherImage"])
+fun setRandomWeatherImage(imageView: ImageView, temp: Float?) {
+    val temperature = (temp!! - 273.15)
+    val selectedImages = when {
+        temperature <= 25.0F -> LocalDataSource.winterClothes
+        temperature in 26.0F..60.0F -> LocalDataSource.summerClothes
+        else -> LocalDataSource.winterClothes
+    }
+    val selectedImage = selectedImages.random()
+
+    if (selectedImage == SharedPreferencesUtil.chosenOutfit)
+        setRandomWeatherImage(imageView, temp)
+
+    SharedPreferencesUtil.chosenOutfit = selectedImage
+    imageView.setImageResource(selectedImage)
 }
